@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Vamsi — AI & ML developer, builder, researcher and Team Omega member. Explore projects, achievements and the journey behind the work." />
+  <meta name="theme-color" content="#090909" />
+  <title>Vamsi — Building Ideas Into Reality</title>
+  <style>
+    :root{
+      --bg:#080808; --surface:#111111; --surface2:#171717; --text:#f4f1eb;
+      --muted:#a8a39a; --line:#282828; --accent:#f5b942; --accent2:#ff7a59;
+      --max:1180px; --radius:24px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    img{display:block;width:100%;object-fit:cover}
+    .wrap{width:min(calc(100% - 40px),var(--max));margin:auto}
+    .nav{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(8,8,8,.72);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between}
+    .brand{font-weight:800;letter-spacing:-.04em;font-size:20px}
+    .brand span{color:var(--accent)}
+    .navlinks{display:flex;gap:26px;color:#bbb;font-size:14px}
+    .navlinks a:hover{color:white}
+    .nav-cta{border:1px solid #3b3b3b;padding:9px 15px;border-radius:999px;font-size:13px}
+    .hero{min-height:100vh;display:grid;align-items:center;position:relative;overflow:hidden;padding:130px 0 80px}
+    .hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 75% 35%,rgba(245,185,66,.16),transparent 28%),radial-gradient(circle at 20% 70%,rgba(255,122,89,.10),transparent 25%)}
+    .hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:55px;align-items:center}
+    .eyebrow{display:inline-flex;gap:8px;align-items:center;color:#d2cdc3;border:1px solid #2c2c2c;background:#101010;padding:7px 12px;border-radius:999px;font-size:12px;margin-bottom:22px}
+    .dot{width:7px;height:7px;background:#68d391;border-radius:50%;box-shadow:0 0 12px #68d391}
+    h1{font-size:clamp(52px,7vw,92px);line-height:.94;letter-spacing:-.075em;max-width:800px}
+    h1 em{font-style:normal;color:var(--accent)}
+    .hero-copy{font-size:19px;color:var(--muted);max-width:650px;margin:28px 0}
+    .buttons{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{padding:13px 19px;border-radius:999px;border:1px solid #353535;font-size:14px;font-weight:650}
+    .btn.primary{background:var(--text);color:#0a0a0a;border-color:var(--text)}
+    .btn:hover{transform:translateY(-2px)}
+    .hero-card{position:relative;border-radius:30px;overflow:hidden;border:1px solid #303030;min-height:520px;background:#151515;box-shadow:0 30px 90px rgba(0,0,0,.45)}
+    .hero-card img{height:100%;min-height:520px}
+    .hero-overlay{position:absolute;inset:auto 0 0;padding:28px;background:linear-gradient(transparent,rgba(0,0,0,.9))}
+    .hero-overlay small{color:#ccc}.hero-overlay h3{font-size:25px;margin-top:5px}
+    section{padding:105px 0;border-top:1px solid var(--line)}
+    .section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:42px}
+    .kicker{color:var(--accent);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+    h2{font-size:clamp(34px,5vw,58px);letter-spacing:-.055em;line-height:1}
+    .section-head p{max-width:420px;color:var(--muted)}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+    .stat{padding:27px;border-right:1px solid var(--line)}
+    .stat:last-child{border-right:0}.stat b{display:block;font-size:32px;letter-spacing:-.05em}.stat span{color:var(--muted);font-size:13px}
+    .timeline{display:grid;grid-template-columns:120px 1fr;gap:0;border-left:1px solid #333}
+    .time{padding:4px 20px;color:var(--accent);font-weight:750}.event{padding:0 0 48px 28px;position:relative}
+    .event:before{content:"";position:absolute;width:9px;height:9px;background:var(--accent);border-radius:50%;left:-5px;top:7px}
+    .event h3{font-size:24px;letter-spacing:-.03em}.event p{color:var(--muted);max-width:730px;margin-top:8px}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{border:1px solid var(--line);background:var(--surface);border-radius:var(--radius);overflow:hidden;transition:.25s}
+    .card:hover{transform:translateY(-5px);border-color:#454545}
+    .card-img{height:220px}.card-body{padding:22px}.tag{font-size:11px;color:var(--accent);font-weight:800;text-transform:uppercase;letter-spacing:.1em}
+    .card h3{font-size:23px;margin:7px 0}.card p{color:var(--muted);font-size:14px}
+    .card-link{display:inline-block;margin-top:17px;font-size:13px;font-weight:700}
+    .achievement{display:grid;grid-template-columns:1.2fr .8fr;gap:22px}
+    .big-award{border:1px solid #5b4420;background:linear-gradient(135deg,#1b1710,#111);border-radius:28px;padding:38px;min-height:330px;display:flex;flex-direction:column;justify-content:space-between}
+    .trophy{font-size:48px}.big-award h3{font-size:38px;letter-spacing:-.05em}.big-award p{color:#c7c0b5;max-width:650px}
+    .mini-awards{display:grid;gap:22px}.mini{border:1px solid var(--line);border-radius:24px;padding:26px;background:var(--surface)}.mini b{font-size:18px}.mini p{color:var(--muted);font-size:14px;margin-top:7px}
+    .team{display:grid;grid-template-columns:.9fr 1.1fr;gap:30px;align-items:stretch}
+    .team-photo{border-radius:28px;overflow:hidden;border:1px solid var(--line);min-height:480px}.team-photo img{height:100%}
+    .team-copy{padding:25px 0}.team-copy p{color:var(--muted);font-size:17px;margin:18px 0 28px}
+    .pillbox{display:flex;gap:9px;flex-wrap:wrap}.pill{border:1px solid #333;padding:8px 12px;border-radius:999px;color:#c9c4bb;font-size:12px}
+    .contact{display:grid;grid-template-columns:1fr .8fr;gap:35px;align-items:end}
+    .contact h2{max-width:700px}.contact p{color:var(--muted);margin:20px 0}
+    footer{padding:35px 0;color:#777;border-top:1px solid var(--line);font-size:12px;display:flex;justify-content:space-between;gap:20px}
+    @media(max-width:850px){
+      .navlinks{display:none}.hero-grid,.achievement,.team,.contact{grid-template-columns:1fr}.hero-card{min-height:400px}.hero-card img{min-height:400px}
+      .cards{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}
+      .timeline{grid-template-columns:80px 1fr}
+    }
+    @media(max-width:520px){.wrap{width:min(calc(100% - 26px),var(--max))}.hero{padding-top:105px}.hero-copy{font-size:16px}.stats{grid-template-columns:1fr}.stat{border-right:0!important;border-bottom:1px solid var(--line)}.stat:last-child{border-bottom:0}.section-head{display:block}.section-head p{margin-top:14px}.buttons .btn{width:100%;text-align:center}}
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#">VAMSI<span>.</span></a>
+      <div class="navlinks">
+        <a href="#journey">Journey</a><a href="#projects">Projects</a><a href="#achievements">Achievements</a><a href="#team">Team Omega</a>
+      </div>
+      <a class="nav-cta" href="#contact">Let's connect ↗</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> AI & ML Developer · Builder · Student</div>
+          <h1>Turning ideas into <em>real things.</em></h1>
+          <p class="hero-copy">I'm Vamsi — a B.Tech AI & ML student, developer and builder from Andhra Pradesh. I enjoy turning problems into products, experimenting with AI, and building alongside people who want to create something meaningful.</p>
+          <div class="buttons">
+            <a class="btn primary" href="#projects">Explore my work ↓</a>
+            <a class="btn" href="https://github.com/krishnavamsivenna" target="_blank" rel="noreferrer">GitHub ↗</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=85" alt="Technology and development workspace" />
+          <div class="hero-overlay"><small>Building the next chapter</small><h3>Code · AI · Research · People</h3></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="stats">
+          <div class="stat"><b>AI/ML</b><span>Core field of study</span></div>
+          <div class="stat"><b>2027</b><span>Expected graduation</span></div>
+          <div class="stat"><b>#2</b><span>Prize — EvidentAI</span></div>
+          <div class="stat"><b>Omega</b><span>Long-term builder team</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="journey">
+      <div class="wrap">
+        <div class="section-head"><div><div class="kicker">The journey</div><h2>Learning by building.</h2></div><p>Not a straight line. More like a collection of experiments, deadlines, failures, teammates, demos and things that finally worked.</p></div>
+        <div class="timeline">
+          <div class="time">2020–23</div><div class="event"><h3>Foundation</h3><p>Completed school and MPC intermediate studies, building the foundation that led toward technology and engineering.</p></div>
+          <div class="time">2023→</div><div class="event"><h3>AI & ML Engineering</h3><p>Started B.Tech in Artificial Intelligence & Machine Learning at Hindu College of Engineering and Technology under JNTUK.</p></div>
+          <div class="time">2025–26</div><div class="event"><h3>From student to builder</h3><p>Worked across full-stack development, databases, AI experiments, research interfaces, hackathons and team projects.</p></div>
+          <div class="time">Now</div><div class="event"><h3>Building with Omega</h3><p>Growing Team Omega beyond a single hackathon — a team for experiments, products and projects worth taking further.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-head"><div><div class="kicker">Selected work</div><h2>Things I've built.</h2></div><p>A mix of AI, research, developer tools and practical systems. Some are experiments; some are being taken further.</p></div>
+        <div class="cards">
+          <article class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=85" alt="Data analytics visualization" />
+            <div class="card-body"><span class="tag">Research · AI</span><h3>EvidentAI</h3><p>A research-focused AI experience designed around multi-source web research, evidence and analysis. The project earned 2nd prize and is being explored for further development.</p><a class="card-link" href="https://github.com/krishnavamsivenna/team-omega-v1-" target="_blank" rel="noreferrer">Team Omega repository ↗</a></div>
+          </article>
+          <article class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=900&q=85" alt="Developer coding workspace" />
+            <div class="card-body"><span class="tag">Developer Tool</span><h3>VACC</h3><p>Vamsi AI Command Center — a personal command center concept for projects, learning, coding workflows and future AI-powered automation.</p><a class="card-link" href="https://github.com/vamsidarion/vamsi-dev-command-center-loq.git" target="_blank" rel="noreferrer">View on GitHub ↗</a></div>
+          </article>
+          <article class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=85" alt="Team collaborating around a table" />
+            <div class="card-body"><span class="tag">Team · Full Stack</span><h3>Alumni Connect</h3><p>A practical alumni platform concept covering profiles, jobs, mentorship, referrals, bookings, notifications and activity tracking.</p><a class="card-link" href="#contact">Project story ↗</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="achievements">
+      <div class="wrap">
+        <div class="section-head"><div><div class="kicker">Milestones</div><h2>Proof that the work matters.</h2></div><p>Achievements are treated as checkpoints — not the destination.</p></div>
+        <div class="achievement">
+          <div class="big-award"><div class="trophy">🏆</div><div><span class="tag">Hindu AI Nexus · 2026</span><h3>2nd Prize — EvidentAI</h3><p>A competition result that became a motivation to keep improving the idea, experience and product beyond the event.</p></div></div>
+          <div class="mini-awards">
+            <div class="mini"><b>Team Omega</b><p>Built as a long-term team rather than a one-event hackathon group — focused on creating and shipping multiple projects together.</p></div>
+            <div class="mini"><b>AI / ML Engineering</b><p>Building practical experience across AI, full-stack development, databases, research workflows and developer tooling.</p></div>
+            <div class="mini"><b>Builder mindset</b><p>Moving from ideas → prototypes → demos → refinement, with an emphasis on learning through actual projects.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="team">
+      <div class="wrap">
+        <div class="section-head"><div><div class="kicker">The people</div><h2>Team Omega.</h2></div><p>A team doesn't have to end when a hackathon ends. Omega is being built for the projects that come next.</p></div>
+        <div class="team">
+          <div class="team-photo"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=85" alt="Friends and teammates collaborating outdoors" /></div>
+          <div class="team-copy">
+            <span class="tag">Long-term team</span>
+            <h2>Build together.<br/>Learn together.</h2>
+            <p>Team Omega brings together people interested in technology, AI, product building and experimentation. The goal is simple: keep making things worth showing.</p>
+            <div class="pillbox"><span class="pill">AI & ML</span><span class="pill">Full Stack</span><span class="pill">Research</span><span class="pill">Product</span><span class="pill">Hackathons</span><span class="pill">Learning</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap contact">
+        <div><div class="kicker">Next chapter</div><h2>Have an idea? Let's build something real.</h2><p>I'm open to interesting projects, collaborations, learning opportunities and conversations around AI, software and product building.</p></div>
+        <div class="buttons"><a class="btn primary" href="https://github.com/krishnavamsivenna" target="_blank" rel="noreferrer">GitHub ↗</a><a class="btn" href="mailto:hello@krishnavamsi.co.uk">Email me ↗</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap"><span>© 2026 Vamsi Venna</span><span>Built with curiosity · Team Omega</span></footer>
+</body>
+</html>
